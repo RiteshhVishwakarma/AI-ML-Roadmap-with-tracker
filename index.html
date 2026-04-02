@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Learning Roadmap – Months</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { purple: '#6c63ff', pink: '#e94560', cyan: '#00b4d8', teal: '#2ec4b6' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background: #0f0f1a; }
+    .gradient-text {
+      background: linear-gradient(90deg, #6c63ff, #e94560, #00b4d8);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .progress-fill { transition: width 0.4s ease; }
+    input[type="checkbox"] { accent-color: var(--accent-color, #6c63ff); width:16px; height:16px; cursor:pointer; flex-shrink:0; }
+    .done-label { text-decoration: line-through; opacity: 0.45; }
+    .card-border-purple { border-top: 3px solid #6c63ff; }
+    .card-border-pink   { border-top: 3px solid #e94560; }
+    .card-border-cyan   { border-top: 3px solid #00b4d8; }
+    .card-border-teal   { border-top: 3px solid #2ec4b6; }
+  </style>
+</head>
+<body class="text-slate-200 min-h-screen font-sans">
+
+  <!-- HEADER -->
+  <header class="bg-[#1a1a2e] border-b border-white/10 py-10 px-4 text-center">
+    <h1 class="gradient-text text-4xl md:text-5xl font-extrabold mb-2">🤖 AI in a Nutshell</h1>
+    <p class="text-slate-400 text-sm mb-6">2-Month Learning Roadmap for Intermediate Full Stack Developers</p>
+
+    <!-- Overall progress -->
+    <div class="max-w-md mx-auto bg-white/5 border border-white/10 rounded-2xl p-4"></div>
+      <div class="flex justify-between text-xs text-slate-400 mb-2">
+        <span>Overall Progress</span>
+        <span id="overall-pct" class="font-bold text-slate-200">0%</span>
+      </div>
+      <div class="w-full bg-white/10 rounded-full h-2.5 overflow-hidden mb-2">
+        <div id="overall-bar" class="h-full rounded-full progress-fill w-0"
+             style="background: linear-gradient(90deg,#6c63ff,#e94560,#00b4d8)"></div>
+      </div>
+      <p id="overall-count" class="text-xs text-slate-500 text-right">0 / 0 topics completed</p>
+    </div>
+  </header>
+
+  <!-- NAV -->
+  <nav class="sticky top-0 z-20 bg-[#16213e] border-b border-white/5 py-3 px-4 flex flex-wrap gap-2 justify-center">
+    <button class="nav-btn active-nav px-4 py-1.5 rounded-full text-sm font-semibold transition-all" data-week="all">All Phases</button>
+    <button class="nav-btn px-4 py-1.5 rounded-full text-sm font-semibold transition-all" data-week="1">🐍 ML Foundations</button>
+    <button class="nav-btn px-4 py-1.5 rounded-full text-sm font-semibold transition-all" data-week="2">🧠 Deep Learning</button>
+    <button class="nav-btn px-4 py-1.5 rounded-full text-sm font-semibold transition-all" data-week="3">💬 NLP & Vision</button>
+    <button class="nav-btn px-4 py-1.5 rounded-full text-sm font-semibold transition-all" data-week="4">🚀 Deploy & Ethics</button>
+  </nav>
+
+  <style>
+    .nav-btn { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #8888aa; }
+    .nav-btn:hover { background: rgba(255,255,255,0.1); color: #e0e0f0; }
+    .active-nav { background: linear-gradient(135deg,#6c63ff,#e94560) !important; border-color: transparent !important; color: #fff !important; }
+  </style>
+
+  <!-- MAIN -->
+  <main id="roadmap-container" class="max-w-6xl mx-auto px-4 py-10 flex flex-col gap-8"></main>
+
+  <!-- FOOTER -->
+  <footer class="text-center py-6 text-slate-500 text-sm border-t border-white/5">
+    Built for your AI learning journey 🚀 &nbsp;
+    <button id="reset-btn" class="border border-red-500/40 text-red-400 px-3 py-1 rounded-full text-xs hover:bg-red-500/10 transition-all ml-1">Reset All</button>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
